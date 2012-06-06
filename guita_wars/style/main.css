@@ -1,0 +1,23 @@
+/* 
+    Document   : main
+    Created on : 2012-5-31, 21:32:56
+    Author     : hp
+    Description:
+        Purpose of the stylesheet follows.
+*/
+@charset "utf-8";
+
+@import "yaml_css/core/base.css";
+@import "yaml_css/screen/typography.css";
+@import "yaml_css/screen/screen-FULLPAGE-layout.css";
+@import "yaml_css/screen/grid-960-16.css";
+@import "yaml_css/navigation/hlist.css";
+@import "yaml_css/print/print.css";
+@import "yaml_css/forms/gray-theme.css";
+
+@import "style.css";
+
+root { 
+    display: block;
+}
+

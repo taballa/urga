@@ -1,0 +1,7 @@
+form label, form textarea{
+  display: block;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+

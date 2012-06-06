@@ -1,0 +1,14 @@
+@charset "utf-8";
+@import "960css/reset.css";
+@import "960css/960_24_col.css";
+@import "960css/text.css";
+
+html {
+	background-color: #FFC;
+}
+body{
+	background-color:#C4E6E2;
+}
+div{
+	background-color: #FCC;
+}
