@@ -1,6 +1,4 @@
 @charset "utf-8";
 
-@import "reset.css";
-@import "core.css";
-@import "layout.css";
-
+@import "base.min.css";
+@import "screen-PAGE-layout.css";
