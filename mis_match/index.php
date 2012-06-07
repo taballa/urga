@@ -13,22 +13,24 @@
      <div class="ym-wrapper">
          <div class="ym-grid">
              <div class="ym-g38 ym-gl">
-                 <dl>
+                 <dl class="menu">
                  <dt></dt>
-                     <dd></dd>
-                     <dd></dd>
-                     <dd></dd>
+                     <dd>list</dd>
+                     <dd>list</dd>
+                     <dd>list</dd>
                  <dt></dt>
-                     <dd></dd>
-                     <dd></dd>
-                     <dd></dd>
+                     <dd>list</dd>
+                     <dd>list</dd>
+                     <dd>list</dd>
                  <dt></dt>
-                     <dd></dd>
-                     <dd></dd>
-                     <dd></dd>
+                     <dd>list</dd>
+                     <dd>list</dd>
+                     <dd>list</dd>
                  </dl>
              </div>
-             <div class="ym-g62 ym-gr"></div>
+             <div class="ym-g62 ym-gr">
+                 <div class="content">content</div>
+             </div>
          </div>
      </div>
      <?php
