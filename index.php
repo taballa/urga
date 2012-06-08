@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link type="text/css" href="style/main.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style/page/index.css" media="all">
 <title>My name is INDEX</title>
 </head>
 
