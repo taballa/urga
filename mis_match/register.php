@@ -31,8 +31,7 @@
     }
 
 
-
-if ($output_form){
+    if ($output_form){
     	?>
 	     <div class="ym-wrapper">
 	         <div class="ym-grid">
