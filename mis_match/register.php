@@ -38,11 +38,11 @@
 	         	<form action="register.php" method="post" class="ym-form" id="register_form">
 	         		<div class="ym-fbox-text">
                         <label for="username">username</label>
-                        <input type="text" name="username" id="">
+                        <input type="text" name="username" id="username">
                         <label for="password">password</label>
-                        <input type="password" name="password" id="">
+                        <input type="password" name="password" id="password">
                         <label for="password_retype">password <em>(retype)</em></label>
-                        <input type="password" name="password_retype" id="">
+                        <input type="password" name="password_retype" id="password_retype">
                         <input type="submit" name="submit" value="register">
 	         		</div>
 	         	</form>

@@ -10,7 +10,6 @@
     ?>
 
     <?php
-    $output_form = true;
     $msg = '';
 
     if (!isset($_COOKIE['id'])) {
@@ -19,47 +18,54 @@
             mysqli_query($dbc, "set name 'utf-8'");
             $username = mysqli_real_escape_string($dbc, trim($_POST['username']));
             $password = mysqli_real_escape_string($dbc, trim($_POST['password']));
+            $remember = null;
+            if (isset($_POST['remember'])) {
+                $remember = time() + (60*60*24*14);
+            }
             $query = "select id, username, password from user where username = '$username' and password = sha('$password')";
             $result = mysqli_query($dbc, $query) or die('error querying database.');
             if (mysqli_num_rows($result) == 1){
                 $row = mysqli_fetch_array($result);
-                setcookie('username', $row['username']);
-                setcookie('id', $row['id']);
-                $msg = "登录成功。";
-                $output_form = false;
+                setcookie('username', $row['username'], $remember);
+                setcookie('id', $row['id'], $remember);
+                $home_url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']).'/index.php';
+                header('Location:'.$home_url);
             }else{
                 $msg = '用户名或密码错误。';
             }
             mysqli_close($dbc);
-        }
-    }else{
-        $id = $_COOKIE['id'];
-        $msg = '欢迎 '."$id".' 如果不是可以<a href="login.php">退出并重新登录</a>。';
-        $output_form = false;
-    }
+        } 
     echo '
-     <div class="ym-wrapper">
-         <div class="ym-grid">
-            <div class="ym-gbox msg"><p>'."$msg".'</p></div>
-        ';
-    if ($output_form) {
+         <div class="ym-wrapper">
+             <div class="ym-grid">
+                <div class="ym-gbox msg"><p>'."$msg".'</p></div>
+            ';
     ?>
-         	<form action="login.php" method="post" class="ym-form" id="login_form">
-         		<div class="ym-fbox-text">
+            <form action="login.php" method="post" class="ym-form" id="login_form">
+                <div class="ym-fbox-text">
                     <label for="username">username</label>
-                    <input type="text" name="username" id="">
-         			<label for="password">password</label>
-         			<input type="password" name="password" id="">
-         			<input type="submit" name='submit' value="Login">
-         		</div>
+                    <input type="text" name="username" id="username">
+                    <label for="password">password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="ym-fbox-check">
+                    <input type="checkbox" name="remember" id="remember">
+                    <label for="remember">记住我</label>
+                </div>
+                <div class="ym-fbox-button">
+                    <input type="submit" name='submit' value="Login">
+                </div>
+                <h6>没有用户名? <a href="register.php">立即注册</a></h6>
             </form>
-            <div class="ym-box"><p><a href="register.php">注册</a></p></div>
-     <?php
+    <?php
+            echo "
+                 </div>
+             </div>
+             ";
+    } else {
+        $view_profile_url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']).'/view_profile.php';
+        header('Location:'.$view_profile_url);
     }
-    echo "
-         </div>
-     </div>
-     ";
     ?>
 
 	<?php
